@@ -11,3 +11,4 @@ Simple 2D Game Engine Made in C++ &amp; SDL2
 * Drag & Drop Editor
 
 # Contributions Welcome
+Pull an issue for contributer permissions
