@@ -1,6 +1,5 @@
 # Drizzle2D
-Simple 2D Game Engine Made in C++ &amp; SDL2
-\nSee the Wiki for how to use.
+Simple 2D Game Engine Made in C++ &amp; SDL2<br>See the Wiki for how to use.
 
 # Downloading
 See Releases for downloading
