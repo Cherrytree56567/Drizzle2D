@@ -1,8 +1,12 @@
 # Drizzle2D
 Simple 2D Game Engine Made in C++ &amp; SDL2
-See the Wiki for how to use.
+\nSee the Wiki for how to use.
+
+# Downloading
+See Releases for downloading
 
 # Future Support
+* Golang Support
 * 3D Support
 * Vulkan Support
 * DirectX Support
