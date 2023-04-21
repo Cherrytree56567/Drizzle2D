@@ -1,5 +1,6 @@
 # Drizzle2D
 Simple 2D Game Engine Made in C++ &amp; SDL2
+See the Wiki for how to use.
 
 # Future Support
 * 3D Support
@@ -9,6 +10,3 @@ Simple 2D Game Engine Made in C++ &amp; SDL2
 * Save Files
 * Multiplayer Support
 * Drag & Drop Editor
-
-# Contributions Welcome
-Pull an issue for contributer permissions
