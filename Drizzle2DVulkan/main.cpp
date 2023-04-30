@@ -8,7 +8,7 @@ void Update() {
 int main() {
     Window GameWindow;
 
-    GameWindow.CreateWindow();
+    GameWindow.CreateWin();
 
     while (!GameWindow.Mainloop()) {
         Update();
