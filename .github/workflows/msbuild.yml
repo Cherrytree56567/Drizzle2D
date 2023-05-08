@@ -34,7 +34,7 @@ jobs:
         cmake --install build --prefix "C:\Program Files\GLFW"
       
     - name: print
-      run: echo "${{env.VK_SDK_PATH}}"
+      run: echo ${{env.VK_SDK_PATH}}
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
