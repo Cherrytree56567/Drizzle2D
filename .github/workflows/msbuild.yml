@@ -16,9 +16,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
-    - name: Restore NuGet packages
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: nuget restore ${{env.SOLUTION_FILE_PATH}}
     - name: Install Vulkan SDK
       run: |
         curl -sL https://sdk.lunarg.com/sdk/download/1.2.189.0/windows/vulkansdk-win-1.2.189.0.exe -o vulkansdk.exe
