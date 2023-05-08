@@ -34,7 +34,7 @@ jobs:
         cmake --install build --prefix "C:\Program Files\GLFW"
     
     - name: print
-      run: dir "C:\Program Files\GLFW"
+      run: dir "D:/a/Drizzle2D/Drizzle2D/VULKAN_SDK"
       
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
