@@ -14,13 +14,16 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
+    
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
+      
     - name: Install Vulkan SDK
       run: |
-        curl -sL https://sdk.lunarg.com/sdk/download/1.2.189.0/windows/vulkansdk-win-1.2.189.0.exe -o vulkansdk.exe
+        curl -sL https://sdk.lunarg.com/sdk/download/1.3.246.0/windows/VulkanSDK-1.3.246.0-Installer.exe -o vulkansdk.exe
         .\vulkansdk.exe /S
         echo "##vso[task.setvariable variable=VK_SDK_PATH]$(ProgramFiles)\LunarG\VulkanSDK\1.2.189.0"
+        
     - name: Install GLFW
       run: |
         git clone https://github.com/glfw/glfw.git
@@ -28,6 +31,7 @@ jobs:
         cmake -S . -B build -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF
         cmake --build build --config Release
         cmake --install build --prefix $(ProgramFiles)\GLFW
+        
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:VULKAN_SDK_PATH="${{env.VK_SDK_PATH}}" /p:GLFW_PATH="$(ProgramFiles)\GLFW" ${{env.SOLUTION_FILE_PATH}}
