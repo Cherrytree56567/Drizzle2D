@@ -31,7 +31,7 @@ jobs:
         cd glfw
         cmake -S . -B build -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF
         cmake --build build --config Release
-        cmake --install build --prefix $(ProgramFiles)\GLFW
+        cmake --install build --prefix "C:\Program Files\GLFW"
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
