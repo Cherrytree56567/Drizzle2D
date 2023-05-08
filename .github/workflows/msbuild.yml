@@ -35,4 +35,4 @@ jobs:
       
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:AdditionalIncludePaths="C:\Program Files\GLFW\include;" /p:AdditionalLibPaths="C:\Program Files\GLFW\lib" ${{env.SOLUTION_FILE_PATH}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:IncludePath="C:\Program Files\GLFW\include;" /p:AdditionalLibPaths="C:\Program Files\GLFW\lib" ${{env.SOLUTION_FILE_PATH}}
