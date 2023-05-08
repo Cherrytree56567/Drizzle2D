@@ -32,6 +32,9 @@ jobs:
         cmake -S . -B build -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF
         cmake --build build --config Release
         cmake --install build --prefix "C:\Program Files\GLFW"
+      
+    - name: print
+      run: echo "${{env.VK_SDK_PATH}}"
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
