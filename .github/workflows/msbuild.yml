@@ -32,7 +32,14 @@ jobs:
         cmake -S . -B build -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF
         cmake --build build --config Release
         cmake --install build --prefix "C:\Program Files\GLFW"
+    
+    - name: Install GLM
+      run: git clone https://github.com/g-truc/glm.git
+    
+    - name: Install STB
+      run: git clone https://github.com/nothings/stb.git
+        
       
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} -p:IncludePath="C:\Program Files\GLFW\include;D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\include" -p:AdditionalLibPaths="C:\Program Files\GLFW\lib;D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\lib" ${{env.SOLUTION_FILE_PATH}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} -p:IncludePath="C:\Program Files\GLFW\include;D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\include;D:\a\Drizzle2D\Drizzle2D\glm;D:\a\Drizzle2D\Drizzle2D\stb" -p:AdditionalLibPaths="C:\Program Files\GLFW\lib;D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\lib" ${{env.SOLUTION_FILE_PATH}}
