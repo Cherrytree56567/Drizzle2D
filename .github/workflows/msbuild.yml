@@ -35,4 +35,4 @@ jobs:
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:VULKAN_SDK_PATH="${{env.VK_SDK_PATH}}" /p:GLFW_PATH="$(ProgramFiles)\GLFW" ${{env.SOLUTION_FILE_PATH}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:VULKAN_SDK_PATH="${{env.VK_SDK_PATH}}" /p:GLFW_PATH="C:\Program Files\GLFW" ${{env.SOLUTION_FILE_PATH}}
