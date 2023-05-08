@@ -34,7 +34,7 @@ jobs:
         cmake --install build --prefix "C:\Program Files\GLFW"
     
     - name: Add GLFW to Path
-      run: pathman /au "C:\Program Files\GLFW"
+      run: set PATH=%PATH%;"C:\Program Files\GLFW"
       
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
