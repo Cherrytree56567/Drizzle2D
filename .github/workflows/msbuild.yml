@@ -8,6 +8,8 @@ jobs:
   build:
     runs-on: windows-latest
     steps:    
+    - name: Print
+      run: dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include"
     - name: Checkout code
       uses: actions/checkout@v2
     
