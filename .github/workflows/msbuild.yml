@@ -11,21 +11,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
-    - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
-    
     - name: Prepare Vulkan SDK
       uses: humbletim/setup-vulkan-sdk@v1.2.0
       with:
         vulkan-query-version: 1.3.204.0
         vulkan-components: Vulkan-Headers, Vulkan-Loader
         vulkan-use-cache: true
-    
-    - name: Print
-      run: |
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\"
-        dir "VULKAN_SDK"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\include"
     
     - name: Install GLFW
       run: |
@@ -43,8 +34,21 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/g-truc/glm.git
     
+    - name: Install Visual Studio 2022 Community
+      run: |
+        curl https://aka.ms/vs/17/release/vs_community.exe -O vs_community.exe
+        vs_community.exe --installPath "C:\Program Files\Microsoft Visual Studio\2022\Community" --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait
+    
+    - name: Print
+      run: |
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\"
+        dir "VULKAN_SDK"
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\include"
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\"
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include"
+    
     - name: Build the project
       shell: cmd
       run: |
-        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64\vs_buildtools.exe" –quiet –add Microsoft.VisualStudio.Workload.VCTools
+        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\vs_buildtools.exe" –quiet –add Microsoft.VisualStudio.Workload.VCTools
         "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64\cl.exe" /EHsc /I. /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" /I"C:\Program Files\GLFW\include" /I"D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\include" /Iglm /Istb -std:c++20 *.cpp /link /LIBPATH:"C:\VulkanSDK\Lib" /LIBPATH:"C:\Program Files\GLFW\lib\glfw3.lib" /Fe:main.exe
