@@ -41,4 +41,4 @@ jobs:
       
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} -p:AdditionalOptions=/std:c++17 -p:IncludePath="C:\Program Files\GLFW\include;D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\include;D:\a\Drizzle2D\Drizzle2D\glm;D:\a\Drizzle2D\Drizzle2D\stb" -p:AdditionalLibPaths="C:\Program Files\GLFW\lib;D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\lib" ${{env.SOLUTION_FILE_PATH}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:AdditionalOptions=/std:c++latest /p:IncludePath="C:\Program Files\GLFW\include;D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\include;D:\a\Drizzle2D\Drizzle2D\glm;D:\a\Drizzle2D\Drizzle2D\stb" /p:AdditionalLibPaths="C:\Program Files\GLFW\lib;D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\lib" ${{env.SOLUTION_FILE_PATH}}
