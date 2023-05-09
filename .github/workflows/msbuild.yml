@@ -9,7 +9,9 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Print
-      run: dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\"
+      run: |
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\"
+        dir "VULKAN_SDK"
     
     - name: Checkout code
       uses: actions/checkout@v2
