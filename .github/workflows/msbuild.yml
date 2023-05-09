@@ -8,8 +8,6 @@ jobs:
   build:
     runs-on: windows-latest
     steps:    
-    - name: Print
-      run: dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include"
     - name: Checkout code
       uses: actions/checkout@v2
     
@@ -41,6 +39,9 @@ jobs:
       run: |
         powershell -c "Invoke-WebRequest -Uri 'https://download.visualstudio.microsoft.com/download/pr/7ac7457f-ba6e-4a12-ba2c-1adebad20070/956d3034e261ad0645371d0ffb21ab5bd3c85ed81feffd11171606fc2bc173ff/vs_Community.exe' -OutFile vs_Community.exe"
         vs_Community.exe --installPath "C:\Program Files\Microsoft Visual Studio\2022\Community" --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait
+    
+    - name: Print
+      run: dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include"
     
     - name: Build
       shell: cmd
