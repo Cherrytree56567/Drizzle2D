@@ -17,7 +17,9 @@ jobs:
     
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
-      
+      with:
+        msbuild-version: '16.0'
+    
     - name: Prepare Vulkan SDK
       uses: humbletim/setup-vulkan-sdk@v1.2.0
       with:
