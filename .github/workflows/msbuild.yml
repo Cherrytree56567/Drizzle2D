@@ -45,4 +45,4 @@ jobs:
     - name: Build the project
       shell: cmd
       run: |
-        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64\cl.exe" /EHsc /I "C:\Program Files\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include" /I "C:\Program Files\GLFW\include" /I "D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\include" /Iglm /Istb -std:c++20 *.cpp /link /LIBPATH:"C:\VulkanSDK\Lib" /LIBPATH:"C:\Program Files\GLFW\lib\glfw3.lib" /Fe:main.exe
+        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64\cl.exe" /EHsc /I. /I"C:\Program Files\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include" /I"C:\Program Files\GLFW\include" /I"D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\include" /Iglm /Istb -std:c++20 *.cpp /link /LIBPATH:"C:\VulkanSDK\Lib" /LIBPATH:"C:\Program Files\GLFW\lib\glfw3.lib" /Fe:main.exe
