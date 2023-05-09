@@ -10,21 +10,20 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Install Vulkan SDK
-      run: |
-        $env:VULKAN_SDK_VERSION="1.3.246.0"
-        $env:VULKAN_SDK="C:\VulkanSDK\${{VULKAN_SDK_VERSION}}"
-        Invoke-WebRequest -Uri "https://sdk.lunarg.com/sdk/download/${{VULKAN_SDK_VERSION}}/windows/VulkanSDK-${{VULKAN_SDK_VERSION}}-Installer.exe" -OutFile "vulkansdk.exe"
-        Start-Process .\vulkansdk.exe -ArgumentList '/S', '/D=C:\VulkanSDK' -Wait
-        Remove-Item .\vulkansdk.exe
+    - name: Prepare Vulkan SDK
+      uses: humbletim/setup-vulkan-sdk@v1.2.0
+      with:
+        vulkan-query-version: 1.3.204.0
+        vulkan-components: Vulkan-Headers, Vulkan-Loader
+        vulkan-use-cache: true
     - name: Install GLFW
       run: |
-        git clone --depth=1 https://github.com/glfw/glfw.git
+        git clone https://github.com/glfw/glfw.git
         cd glfw
-        mkdir build && cd build
-        cmake .. -DCMAKE_INSTALL_PREFIX=C:/glfw
-        cmake --build . --config Release --target install
-        cd ../.. && rm -rf glfw
+        cmake -S . -B build -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF
+        cmake --build build --config Release
+        cmake --install build --prefix "C:\Program Files\GLFW"
+      
     - name: Install STB
       run: |
         git clone --depth=1 https://github.com/nothings/stb.git
@@ -38,4 +37,4 @@ jobs:
     - name: Build the project
       shell: cmd
       run: |
-        cl.exe /EHsc /I C:\glfw\include /I C:\VulkanSDK\${{VULKAN_SDK_VERSION}}\Include /I glm /I stb -std:c++latest /Fe:main.exe *.cpp *.h
+        cl.exe /EHsc /I C:\Program Files\GLFW\include /I VULKAN_SDK\include /I glm /I stb -std:c++latest /Fe:main.exe *.cpp *.h
