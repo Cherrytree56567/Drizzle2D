@@ -8,6 +8,8 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
+    - name: Print
+      run: dir "C:\Program Files (x86)\Microsoft Visual Studio\2017"
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Prepare Vulkan SDK
