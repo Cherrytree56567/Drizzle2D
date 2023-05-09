@@ -7,12 +7,7 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    steps:
-    - name: Print
-      run: |
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\"
-        dir "VULKAN_SDK"
-    
+    steps:    
     - name: Checkout code
       uses: actions/checkout@v2
     
@@ -25,6 +20,11 @@ jobs:
         vulkan-query-version: 1.3.204.0
         vulkan-components: Vulkan-Headers, Vulkan-Loader
         vulkan-use-cache: true
+    
+    - name: Print
+      run: |
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\"
+        dir "VULKAN_SDK"
     
     - name: Install GLFW
       run: |
