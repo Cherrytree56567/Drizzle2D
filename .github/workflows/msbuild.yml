@@ -40,12 +40,7 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/g-truc/glm.git
     
-    - name: Set up MSVC compiler environment
-      shell: cmd
-      run: |
-        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
-    
     - name: Build the project
       shell: cmd
       run: |
-        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64\cl.exe" /EHsc /I "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\include" /I "C:\Program Files\GLFW\include" /I "VULKAN_SDK\include" /I glm /I stb -std:c++20 /Fe:main.exe *.cpp
+        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64\cl.exe" /EHsc /I "C:\Program Files\GLFW\include" /I "VULKAN_SDK\include" /I glm /I stb -std:c++20 /Fe:main.exe *.cpp
