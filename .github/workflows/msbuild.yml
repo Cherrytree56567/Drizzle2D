@@ -36,7 +36,7 @@ jobs:
     
     - name: Install Visual Studio 2022 Community
       run: |
-        curl https://aka.ms/vs/17/release/vs_community.exe -O vs_community.exe
+        curl https://download.visualstudio.microsoft.com/download/pr/7ac7457f-ba6e-4a12-ba2c-1adebad20070/956d3034e261ad0645371d0ffb21ab5bd3c85ed81feffd11171606fc2bc173ff/vs_Community.exe -O vs_community.exe
         vs_community.exe --installPath "C:\Program Files\Microsoft Visual Studio\2022\Community" --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait
     
     - name: Print
