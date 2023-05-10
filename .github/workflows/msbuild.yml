@@ -41,15 +41,16 @@ jobs:
         vs_Community.exe --installPath "C:\Program Files\Microsoft Visual Studio\2022\Community" --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait
     
     - name: Install Windows SDK
+      shell: cmd
       run: |
         powershell -c "Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/p/?linkid=2196241' -OutFile setup.exe"
+        dir
         setup.exe /quiet /features OptionId.WindowsSoftwareDevelopmentKit OptionId.DocumentationAndSamples OptionId.WindowsPerformanceToolkit OptionId.WindowsApp CertificationKit OptionId.DebuggingToolsForWindows
     
     - name: Print
       run: |
         dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include"
         dir "C:\Program Files\Microsoft SDKs\Windows"
-    
     
     - name: Build
       shell: cmd
