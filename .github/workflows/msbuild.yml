@@ -50,6 +50,7 @@ jobs:
       run: |
         dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include"
         dir "C:\Program Files\Microsoft SDKs"
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\"
     
     - name: Build
       shell: cmd
