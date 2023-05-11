@@ -1,7 +1,7 @@
 CC=gcc
 CPPC=g++
 OBJ = main.obj
-CFLAGS = -std=c++17 -O2 -Istb -I.
+CFLAGS = -std=c++17 -O2 -Istb -I. -DLinux
 LDFLAGS = -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 SRCRENDERER = CommandBuffer.cpp Debug.cpp Device.cpp framebuffer.cpp Frames.cpp GraphicsPipeline.cpp ImageViews.cpp LogicalDevice.cpp PhysicalDevice.cpp Renderer.cpp Renderer.h Shader.cpp Surface.cpp Swapchain.cpp Textures.cpp UniformBuffer.cpp
 SRCWINDOW = Window.cpp Window.h
@@ -38,5 +38,5 @@ test:
 	./Drizzle2D.elf
 
 clean:
-	rm x64/Release/*
-	rm -R stb
+	rm -f x64/Release/*
+	rm -R -f stb
