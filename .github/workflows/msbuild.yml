@@ -49,7 +49,9 @@ jobs:
     
     - name: Download Windows SDK
       shell: powershell
-      run: Invoke-WebRequest -Uri "https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe" -OutFile winsdksetup.exe
+      run: |
+        Invoke-WebRequest -Uri "https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe" -OutFile winsdksetup.exe
+        mkdir C:/Win10SDK
     
     - name: Install Windows SDK
       shell: cmd
