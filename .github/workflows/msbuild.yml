@@ -37,15 +37,22 @@ jobs:
     - name: Install Visual Studio 2022 Community
       shell: cmd
       run: |
-        https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe
-        winsdksetup.exe --installPath "C:\Program Files\Microsoft Visual Studio\2022\Community" --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait
+        powershell -c "Invoke-WebRequest -Uri 'https://download.visualstudio.microsoft.com/download/pr/7ac7457f-ba6e-4a12-ba2c-1adebad20070/956d3034e261ad0645371d0ffb21ab5bd3c85ed81feffd11171606fc2bc173ff/vs_Community.exe' -OutFile vs_Community.exe"
+        vs_Community.exe --installPath "C:\Program Files\Microsoft Visual Studio\2022\Community" --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait
+    
+    - name: Install Windows SDK
+      shell: cmd
+      run: |
+        curl https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe
+        winsdksetup.exe /quiet /features OptionId.WindowsSoftwareDevelopmentKit OptionId.DocumentationAndSamples OptionId.WindowsPerformanceToolkit OptionId.WindowsApp CertificationKit OptionId.DebuggingToolsForWindows
     
     - name: Print
       run: |
         dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include"
         dir "C:\Program Files\Microsoft SDKs"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\"
+        dir "C:\Program Files (x86)"
+        dir "C:\Program Files\Microsoft SDKs"
+        dir "C:\Program Files\Microsoft SDKs"
     
     - name: Build
       shell: cmd
