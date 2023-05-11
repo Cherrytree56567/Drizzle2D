@@ -6,7 +6,7 @@
 
 [![MSBuild](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/msbuild.yml/badge.svg)](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/msbuild.yml)
 
-[Key Features](#Key-Features) [Downloading](#Downloading) [Future Support](#Future-Support)
+[Key Features](#Key-Features) | [Downloading](#Downloading) | [Future Support](#Future-Support)
 
 # Key Features
 * Image display
