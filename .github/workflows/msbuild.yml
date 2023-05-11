@@ -11,6 +11,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
+    - name: Printq
+      run: dir "C:\Program Files (x86)\MSBuild\"
+    
     - name: Install Vulkan SDK
       uses: humbletim/setup-vulkan-sdk@v1.2.0
       with:
