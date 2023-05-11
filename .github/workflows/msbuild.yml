@@ -44,7 +44,7 @@ jobs:
       shell: powershell
       run: |
         Invoke-WebRequest -Uri "https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe" -OutFile winsdksetup.exe
-        ./winsdksetup.exe /quiet /features OptionId.WindowsSoftwareDevelopmentKit OptionId.DocumentationAndSamples OptionId.WindowsPerformanceToolkit OptionId.WindowsApp CertificationKit OptionId.DebuggingToolsForWindows
+        ./winsdksetup.exe /quiet /features OptionId.DesktopCPParm64 OptionId.DesktopCPParm OptionId.DesktopCPPx64 OptionId.DesktopCPPx86 OptionId.UWPLocalized OptionId.UWPCPP OptionId.UWPManaged OptionId.SigningTools OptionId.MSIInstallTools OptionId.IpOverUsb OptionId.WindowsSoftwareLogoToolkit OptionId.NetFxSoftwareDevelopmentKit OptionId.AvrfExternal OptionId.WindowsDesktopDebuggers OptionId.WindowsPerformanceToolkit
     
     - name: Print
       run: |
