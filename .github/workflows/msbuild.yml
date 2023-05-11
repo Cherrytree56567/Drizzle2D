@@ -43,7 +43,7 @@ jobs:
     - name: Install Windows SDK
       shell: cmd
       run: |
-        curl https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe
+        powershell -c "Invoke-WebRequest -Uri 'https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe' -OutFile winsdksetup.exe"
         winsdksetup.exe /quiet /features OptionId.WindowsSoftwareDevelopmentKit OptionId.DocumentationAndSamples OptionId.WindowsPerformanceToolkit OptionId.WindowsApp CertificationKit OptionId.DebuggingToolsForWindows
     
     - name: Print
