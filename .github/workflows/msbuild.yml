@@ -41,10 +41,10 @@ jobs:
         vs_Community.exe --installPath "C:\Program Files\Microsoft Visual Studio\2022\Community" --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait
     
     - name: Install Windows SDK
-      shell: cmd
+      shell: powershell
       run: |
-        powershell -c "Invoke-WebRequest -Uri 'https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe' -OutFile winsdksetup.exe"
-        winsdksetup.exe /quiet /features OptionId.WindowsSoftwareDevelopmentKit OptionId.DocumentationAndSamples OptionId.WindowsPerformanceToolkit OptionId.WindowsApp CertificationKit OptionId.DebuggingToolsForWindows
+        Invoke-WebRequest -Uri "https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe" -OutFile winsdksetup.exe
+        ./winsdksetup.exe /quiet /features OptionId.WindowsSoftwareDevelopmentKit OptionId.DocumentationAndSamples OptionId.WindowsPerformanceToolkit OptionId.WindowsApp CertificationKit OptionId.DebuggingToolsForWindows
     
     - name: Print
       run: |
