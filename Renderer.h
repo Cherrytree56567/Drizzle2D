@@ -2,7 +2,7 @@
 #define DRIZZLE_TRUE VK_TRUE
 #define DRIZZLE_FALSE VK_FALSE
 #ifdef Linux
-#define s 1
+#define VG_HSJ_D
 #else
 #define VK_USE_PLATFORM_WIN32_KHR
 #define GLFW_EXPOSE_NATIVE_WIN32
@@ -14,6 +14,7 @@
 #include <vector>
 #include <iostream>
 #include <map>
+#include <cstring>
 #include <string>
 #include <functional>
 #include <iostream>
