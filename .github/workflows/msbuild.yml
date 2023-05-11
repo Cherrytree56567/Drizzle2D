@@ -47,11 +47,13 @@ jobs:
         powershell -c "Invoke-WebRequest -Uri 'https://download.visualstudio.microsoft.com/download/pr/7ac7457f-ba6e-4a12-ba2c-1adebad20070/956d3034e261ad0645371d0ffb21ab5bd3c85ed81feffd11171606fc2bc173ff/vs_Community.exe' -OutFile vs_Community.exe"
         vs_Community.exe --installPath "C:\Program Files\Microsoft Visual Studio\2022\Community" --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait
     
-    - name: Install Windows SDK
+    - name: Download Windows SDK
       shell: powershell
-      run: |
-        Invoke-WebRequest -Uri "https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe" -OutFile winsdksetup.exe
-        ./winsdksetup.exe /installpath "C:\Win10SDK" /quiet /features OptionId.DesktopCPParm64 OptionId.DesktopCPParm OptionId.DesktopCPPx64 OptionId.DesktopCPPx86 OptionId.UWPLocalized OptionId.UWPCPP OptionId.UWPManaged OptionId.SigningTools OptionId.MSIInstallTools OptionId.IpOverUsb OptionId.WindowsSoftwareLogoToolkit OptionId.NetFxSoftwareDevelopmentKit OptionId.AvrfExternal OptionId.WindowsDesktopDebuggers OptionId.WindowsPerformanceToolkit
+      run: Invoke-WebRequest -Uri "https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe" -OutFile winsdksetup.exe
+    
+    - name: Install Windows SDK
+      shell: cmd
+      run: winsdksetup.exe /installpath "C:\Win10SDK" /quiet /features OptionId.DesktopCPParm64 OptionId.DesktopCPParm OptionId.DesktopCPPx64 OptionId.DesktopCPPx86 OptionId.UWPLocalized OptionId.UWPCPP OptionId.UWPManaged OptionId.SigningTools OptionId.MSIInstallTools OptionId.IpOverUsb OptionId.WindowsSoftwareLogoToolkit OptionId.NetFxSoftwareDevelopmentKit OptionId.AvrfExternal OptionId.WindowsDesktopDebuggers OptionId.WindowsPerformanceToolkit
     
     - name: Print
       run: |
