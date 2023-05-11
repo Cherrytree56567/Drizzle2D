@@ -54,6 +54,7 @@ jobs:
         dir "C:\Program Files (x86)"
         dir "C:\Program Files\Microsoft SDKs"
         dir "C:\Program Files (x86)\Microsoft SDKs\Windows Kits\10"
+        dir "C:\Program Files\Microsoft SDKs\Windows Kits\10"
     
     - name: Build
       shell: cmd
