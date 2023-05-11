@@ -34,17 +34,15 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/g-truc/glm.git
     
+    - name: Download GCC
+      run: |
+        git clone https://github.com/gcc-mirror/gcc.git
+    
     - name: Install Visual Studio 2022 Community
       shell: cmd
       run: |
         powershell -c "Invoke-WebRequest -Uri 'https://download.visualstudio.microsoft.com/download/pr/7ac7457f-ba6e-4a12-ba2c-1adebad20070/956d3034e261ad0645371d0ffb21ab5bd3c85ed81feffd11171606fc2bc173ff/vs_Community.exe' -OutFile vs_Community.exe"
         vs_Community.exe --installPath "C:\Program Files\Microsoft Visual Studio\2022\Community" --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait
-    
-    - name: Install Windows SDK
-      shell: powershell
-      run: |
-        Invoke-WebRequest -Uri "https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe" -OutFile winsdksetup.exe
-        ./winsdksetup.exe /quiet /features OptionId.DesktopCPParm64 OptionId.DesktopCPParm OptionId.DesktopCPPx64 OptionId.DesktopCPPx86 OptionId.UWPLocalized OptionId.UWPCPP OptionId.UWPManaged OptionId.SigningTools OptionId.MSIInstallTools OptionId.IpOverUsb OptionId.WindowsSoftwareLogoToolkit OptionId.NetFxSoftwareDevelopmentKit OptionId.AvrfExternal OptionId.WindowsDesktopDebuggers OptionId.WindowsPerformanceToolkit
     
     - name: Print
       run: |
@@ -57,4 +55,4 @@ jobs:
     - name: Build
       shell: cmd
       run: |
-        "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64\cl.exe" /EHsc /I. /I"C:\Program Files (x86)\Microsoft SDKs\Windows Kits\10\include" /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" /I"C:\Program Files\GLFW\include" /I"D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\include" /Iglm /Istb -std:c++20 *.cpp /link /LIBPATH:"C:\VulkanSDK\Lib" /LIBPATH:"C:\Program Files\GLFW\lib\glfw3.lib" /Fe:main.exe
+        "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64\cl.exe" /EHsc /I. /Igcc/gcc/ginclude /I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" /I"C:\Program Files\GLFW\include" /I"D:\a\Drizzle2D\Drizzle2D\VULKAN_SDK\include" /Iglm /Istb -std:c++20 *.cpp /link /LIBPATH:"C:\VulkanSDK\Lib" /LIBPATH:"C:\Program Files\GLFW\lib\glfw3.lib" /Fe:main.exe
