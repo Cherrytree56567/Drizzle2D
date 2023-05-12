@@ -37,10 +37,6 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/g-truc/glm.git
     
-    - name: Download GCC
-      run: |
-        git clone https://github.com/gcc-mirror/gcc.git
-    
     - name: Install Visual Studio 2022 Community
       shell: cmd
       run: |
