@@ -55,12 +55,13 @@ jobs:
     
     - name: Install Windows SDK
       shell: cmd
-      run: winsdksetup.exe /installpath "C:\Win10SDK" /features + /quiet /norestart
+      run: winsdksetup.exe /features + /quiet /norestart
     
     - name: Print
       run: |
         dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include"
-        dir "Win10SDK"
+        dir "C:\Program Files\Windows SDKs\10"
+        dir "C:\Program Files (x86)\Windows SDKs\10"
     
     - name: Build
       shell: cmd
