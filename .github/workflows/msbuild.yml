@@ -54,7 +54,7 @@ jobs:
       run: winsdksetup.exe /features + /quiet /norestart
     
     - name: Download Modified OpenGL
-      run: https://github.com/Cherrytree56567/GL-Registry.git
+      run: git clone https://github.com/Cherrytree56567/GL-Registry.git
     
     - name: Download OpenGL
       run: git clone https://github.com/KhronosGroup/OpenGL-Registry.git
