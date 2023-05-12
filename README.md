@@ -6,6 +6,8 @@
 
 [![MSBuild](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/msbuild.yml/badge.svg)](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/msbuild.yml)
 
+[![MacBuild](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/MacBuild.yml/badge.svg)](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/MacBuild.yml)
+
 [Key Features](#Key-Features) | [Downloading](#Downloading) | [Future Support](#Future-Support)
 
 # Key Features
