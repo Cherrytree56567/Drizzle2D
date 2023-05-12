@@ -55,12 +55,12 @@ jobs:
     
     - name: Install Windows SDK
       shell: cmd
-      run: winsdksetup.exe /norestart /installpath "C:\Win10SDK" /quiet /features OptionId.DesktopCPParm64 OptionId.DesktopCPParm OptionId.DesktopCPPx64 OptionId.DesktopCPPx86 OptionId.UWPLocalized OptionId.UWPCPP OptionId.UWPManaged OptionId.SigningTools OptionId.MSIInstallTools OptionId.IpOverUsb OptionId.WindowsSoftwareLogoToolkit OptionId.NetFxSoftwareDevelopmentKit OptionId.AvrfExternal OptionId.WindowsDesktopDebuggers OptionId.WindowsPerformanceToolkit
+      run: winsdksetup.exe /installpath "C:\Win10SDK" /features + /quiet /norestart
     
     - name: Print
       run: |
         dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include"
-        dir "C:\Win10SDK"
+        dir "Win10SDK"
     
     - name: Build
       shell: cmd
