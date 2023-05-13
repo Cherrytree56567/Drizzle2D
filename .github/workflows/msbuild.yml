@@ -58,24 +58,7 @@ jobs:
     
     - name: Print
       run: |
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include"
-        dir "C:\Program Files (x86)"
-        dir "C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt"
-        dir "C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt"
-        dir "C:\Program Files (x86)\Windows Kits\10\Include\10.0.20348.0\ucrt"
-        dir "C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt"
-        dir "C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\ucrt"
-        dir "C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt"
-        dir "C:\Program Files (x86)\Microsoft SDKs\Windows Kits\10"
-        dir "C:\Program Files (x86)\Windows Kits\10"
-        dir "C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\km\x64"
-        dir "C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\ucrt\x64"
-        dir "C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\ucrt_enclave\x64"
-        dir "C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\um\x64"
-        dir "C:\Program Files (x86)\Windows Kits\10\lib\wdf"
-        dir "C:\Program Files\Microsoft SDKs"
-        dir "C:\Program Files\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\lib"
+        dir -s "C:/"
     
     - name: Build
       shell: cmd
