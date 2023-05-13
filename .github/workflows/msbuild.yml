@@ -75,6 +75,7 @@ jobs:
         dir "C:\Program Files (x86)\Windows Kits\10\lib\wdf"
         dir "C:\Program Files\Microsoft SDKs"
         dir "C:\Program Files\"
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\lib"
     
     - name: Build
       shell: cmd
