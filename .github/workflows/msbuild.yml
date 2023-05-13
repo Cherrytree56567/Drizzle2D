@@ -56,10 +56,6 @@ jobs:
     - name: Download MESA
       run: git clone https://github.com/Mesa3D/mesa.git
     
-    - name: Print
-      run: |
-        dir -s "C:/"
-    
     - name: Build
       shell: cmd
       run: |
