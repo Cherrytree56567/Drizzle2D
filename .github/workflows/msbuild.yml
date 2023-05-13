@@ -28,6 +28,8 @@ jobs:
         cmake -S . -B build -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF
         cmake --build build --config Release
         cmake --install build --prefix "C:\Program Files\GLFW"
+        dir "C:\VulkanSDK\Lib"
+        dir "C:\Program Files\GLFW\lib\"
     
     - name: Download STB
       run: |
