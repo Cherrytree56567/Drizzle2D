@@ -28,8 +28,9 @@ jobs:
         cmake -S . -B build -DGLFW_BUILD_EXAMPLES=OFF -DGLFW_BUILD_TESTS=OFF -DGLFW_BUILD_DOCS=OFF
         cmake --build build --config Release
         cmake --install build --prefix "C:\Program Files\GLFW"
-        dir "C:\VulkanSDK\Lib"
-        dir "C:\Program Files\GLFW\lib\"
+        dir -s "D:/a/Drizzle2D/Drizzle2D/_vulkan_build"
+        dir -s "D:/a/Drizzle2D/Drizzle2D/VULKAN_SDK"
+        dir -s "C:\Program Files\GLFW\"
     
     - name: Download STB
       run: |
