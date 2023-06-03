@@ -35,7 +35,7 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/g-truc/glm.git
     
-    - name: Install Visual Studio 2022 Community
+    - name: Install Visual Studio 2022 Community 
       shell: cmd
       run: |
         powershell -c "Invoke-WebRequest -Uri 'https://download.visualstudio.microsoft.com/download/pr/7ac7457f-ba6e-4a12-ba2c-1adebad20070/956d3034e261ad0645371d0ffb21ab5bd3c85ed81feffd11171606fc2bc173ff/vs_Community.exe' -OutFile vs_Community.exe"
