@@ -10,18 +10,18 @@
 
 [Key Features](#Key-Features) | [Downloading](#Downloading) | [Future Support](#Future-Support)
 
+# Notes
+* The Docs are currently ONLY for the SDL2 version in the releases NOT the code in this repo. The code in this repo is only for the new Vulkan version.
+
+# Tasks
+* Add Sprites
+* Add Audio
+* Add Keyboard Input
+* Add Mouse Input
+* Add Threading
+
 # Key Features
 * Image display
 
 # Downloading
 Download by going to [Releases](https://github.com/Drizzle3D/Drizzle2D/releases)
-
-# Future Support
-* Golang Support
-* 3D Support
-* Vulkan Support
-* DirectX Support
-* Packages
-* Save Files
-* Multiplayer Support
-* Drag & Drop Editor
