@@ -1,4 +1,4 @@
-<img src="https://github.com/Drizzle3D/Drizzle2D/blob/main/Drizzle2D.png" width="25%" height="25%">
+<img src="https://github.com/Cherrytree56567/Drizzle2D/blob/main/Drizzle2D.png" width="25%" height="25%">
 
 **Simple 2D Game Engine Made in C++ &amp; Vulkan**
 
@@ -24,4 +24,4 @@
 * Image display
 
 # Downloading
-Download by going to [Releases](https://github.com/Drizzle3D/Drizzle2D/releases)
+Download by going to [Releases](https://github.com/Cherrytree56567/Drizzle2D/releases)
