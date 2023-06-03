@@ -2,11 +2,11 @@
 
 **Simple 2D Game Engine Made in C++ &amp; Vulkan**
 
-[![MSBuild](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/msbuild.yml/badge.svg)](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/msbuild.yml)
+[![MSBuild](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/msbuild.yml/badge.svg)](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/msbuild.yml)
 
-[![MacBuild](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/MacBuild.yml/badge.svg)](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/MacBuild.yml)
+[![MacBuild](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/MacBuild.yml/badge.svg)](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/MacBuild.yml)
 
-[![LinuxBuild](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/makefile.yml/badge.svg)](https://github.com/Drizzle3D/Drizzle2D/actions/workflows/makefile.yml)
+[![LinuxBuild](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/makefile.yml/badge.svg)](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/makefile.yml)
 
 [Key Features](#Key-Features) | [Downloading](#Downloading) | [Future Support](#Future-Support)
 
