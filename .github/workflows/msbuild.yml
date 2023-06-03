@@ -25,7 +25,7 @@ jobs:
       run: |
         powershell -c "Invoke-WebRequest -Uri 'https://github.com/glfw/glfw/releases/download/3.3.8/glfw-3.3.8.bin.WIN64.zip' -OutFile glfw.zip"
         powershell.exe -NoP -NonI -Command "Expand-Archive '.\glfw.zip' 'C:\Program Files\GLFW'"
-        dir "C:\Program Files\GLFW"
+        dir "C:\Program Files\GLFW\glfw-3.3.8.bin.WIN64"
     
     - name: Download STB
       run: |
