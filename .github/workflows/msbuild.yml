@@ -51,7 +51,7 @@ jobs:
       shell: cmd
       run: winsdksetup.exe /features + /quiet /norestart
     
-    - name: Download MESA
+    - name: Download MESA 
       run: git clone https://github.com/Mesa3D/mesa.git
     
     - name: Build
