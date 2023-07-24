@@ -57,4 +57,4 @@ jobs:
     - name: Build
       shell: cmd
       run: |
-        dotnet build YourSolution.sln --configuration Release
+        dotnet build Drizzle2DVulkan.vcxproj --configuration Release
