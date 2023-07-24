@@ -55,8 +55,9 @@ jobs:
       run: git clone https://github.com/Mesa3D/mesa.git
     
     - name: Set up MSVC environment
-      run: |
-        echo "##[add-path]C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\Common7\\IDE\\VC\\VCTargets"
+      env:
+        PATH: ${{ env.PATH }};C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\Common7\IDE\VC\VCTargets
+      run: echo 'Environment set up successfully.'
     
     - name: Build
       shell: cmd
