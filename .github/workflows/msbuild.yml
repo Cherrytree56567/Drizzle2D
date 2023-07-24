@@ -54,6 +54,10 @@ jobs:
     - name: Download MESA
       run: git clone https://github.com/Mesa3D/mesa.git
     
+    - name: Set up MSVC environment
+      run: |
+        echo "##[add-path]C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\Common7\\IDE\\VC\\VCTargets"
+    
     - name: Build
       shell: cmd
       run: |
