@@ -56,7 +56,7 @@ jobs:
     
     - name: Set up MSVC environment
       env:
-        PATH: ${{ env.PATH }};C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\Common7\IDE\VC\VCTargets
+        PATH: ${{ env.PATH }};C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\VC\VCTargets
       run: echo 'Environment set up successfully.'
     
     - name: Build
