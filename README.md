@@ -4,9 +4,7 @@
 
 [![MSBuild](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/msbuild.yml/badge.svg)](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/msbuild.yml)
 
-[![MacBuild](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/MacBuild.yml/badge.svg)](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/MacBuild.yml)
-
-[![LinuxBuild](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/makefile.yml/badge.svg)](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/makefile.yml)
+[![LinuxBuild](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/linux.yml/badge.svg)](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/linux.yml)
 
 [Key Features](#Key-Features) | [Downloading](#Downloading) | [Future Support](#Future-Support)
 
