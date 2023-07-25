@@ -63,12 +63,10 @@ jobs:
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\VC"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\VC\VCTargets"
+        dir /S "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\VC"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VC"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VC\VCTargets"
+        dir /S "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VC"
     
     - name: Build
       shell: cmd
