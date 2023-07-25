@@ -70,7 +70,7 @@ jobs:
       if: steps.cache-deps.outputs.cache-hit != 'true'
       run: git clone https://github.com/Mesa3D/mesa.git
     
-    - name: Add Custom Path
+    - name: Add MSBuild to Path
       run: |
           echo "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170;${{ env.PATH }}" >> $GITHUB_ENV
       env:
