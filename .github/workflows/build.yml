@@ -30,7 +30,7 @@ jobs:
       run: |
           powershell -c "Invoke-WebRequest -Uri 'https://github.com/Cherrytree56567/Drizzle2D/raw/main/GLFW.zip' -OutFile glfw.zip"
           powershell.exe -NoP -NonI -Command "Expand-Archive '.\glfw.zip' ${{ github.workspace }}"
-          dir ${{ github.workspace }}
+          dir ${{ github.workspace }}\\GLFW
 
       # Cache STB, GLM, and MESA repositories
     - name: Cache STB, GLM, MESA
