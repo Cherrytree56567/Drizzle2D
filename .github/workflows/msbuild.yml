@@ -68,6 +68,11 @@ jobs:
           vs-version: '17' # Use the appropriate version
           include-prerelease: true # Set to false if you don't want prerelease versions
     
+    - name: Add VS Build Tools to Environment Variables
+      run: |
+        dir "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\VC\VCTargets"
+        echo "##[set-env name=PATH]C:\Program Files\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\VC\VCTargets;${{ env.PATH }}"
+    
     - name: Build
       shell: cmd
       run: |
