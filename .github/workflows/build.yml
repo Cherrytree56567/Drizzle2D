@@ -26,12 +26,6 @@ jobs:
         vulkan-components: Vulkan-Headers, Vulkan-Loader
         vulkan-use-cache: true
 
-    - name: Install GLFW
-      run: |
-          powershell -c "Invoke-WebRequest -Uri 'https://github.com/Cherrytree56567/Drizzle2D/raw/main/GLFW.zip' -OutFile glfw.zip"
-          powershell.exe -NoP -NonI -Command "Expand-Archive '.\glfw.zip' ${{ github.workspace }}"
-          dir ${{ github.workspace }}\\GLFW
-
       # Cache STB, GLM, and MESA repositories
     - name: Cache STB, GLM, MESA
       id: cache-deps
@@ -41,8 +35,16 @@ jobs:
             stb
             glm
             mesa
+            GLFW
           key: ${{ runner.os }}-deps-${{ hashFiles('**/dependencies-lock.json') }}
           restore-keys: ${{ runner.os }}-deps-
+    
+    - name: Install GLFW
+      if: steps.cache-deps.outputs.cache-hit != 'true'
+      run: |
+          powershell -c "Invoke-WebRequest -Uri 'https://github.com/Cherrytree56567/Drizzle2D/raw/main/GLFW.zip' -OutFile glfw.zip"
+          powershell.exe -NoP -NonI -Command "Expand-Archive '.\glfw.zip' ${{ github.workspace }}"
+          dir ${{ github.workspace }}\\GLFW
 
     - name: Download STB
       if: steps.cache-deps.outputs.cache-hit != 'true'
