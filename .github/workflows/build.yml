@@ -27,7 +27,10 @@ jobs:
         vulkan-use-cache: true
 
     - name: Install GLFW
-      run: git clone https://github.com/glfw/glfw.git
+      run: |
+          powershell -c "Invoke-WebRequest -Uri 'https://github.com/Cherrytree56567/Drizzle2D/raw/main/GLFW.zip' -OutFile glfw.zip"
+          powershell.exe -NoP -NonI -Command "Expand-Archive '.\glfw.zip' ${{ github.workspace }}"
+          dir ${{ github.workspace }}
 
       # Cache STB, GLM, and MESA repositories
     - name: Cache STB, GLM, MESA
