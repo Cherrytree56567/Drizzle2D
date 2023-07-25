@@ -66,4 +66,4 @@ jobs:
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        msbuild.exe /m Drizzle2DVulkan.vcxproj /p:Configuration=Release
+        msbuild.exe /m Drizzle2DVulkan.vcxproj /p:Configuration=Release -t:restore -p:RestorePackagesConfig=true
