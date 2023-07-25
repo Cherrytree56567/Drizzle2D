@@ -77,13 +77,10 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
     
-    - name: Restore Nuget Packages
-      run: cmd /C nuget restore D:\a\Drizzle2D\Drizzle2D\Drizzle2DVulkan.vcxproj -DisableParallelProcessing
-    
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        msbuild.exe /m Drizzle2DVulkan.vcxproj /p:Configuration=Release
+        msbuild.exe /m Drizzle2DVulkan.vcxproj /p:Configuration=Release -t:restore -p:RestorePackagesConfig=true
     
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
