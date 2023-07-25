@@ -60,7 +60,10 @@ jobs:
       if: steps.cache-deps.outputs.cache-hit != 'true'
       run: git clone https://github.com/Mesa3D/mesa.git
     
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+    
     - name: Build
-      shell: cmd
+      working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\msbuild.exe" Drizzle2DVulkan.vcxproj /p:Configuration=Release /p:AdditionalIncludeDirectories="..\GLFW"
+        msbuild.exe /m Drizzle2DVulkan.vcxproj /p:Configuration=Release
