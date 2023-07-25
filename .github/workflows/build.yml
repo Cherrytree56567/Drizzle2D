@@ -17,7 +17,6 @@ jobs:
     runs-on: windows-latest
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-      VCTargetsPath: "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\"
     steps:    
     - name: Checkout code
       uses: actions/checkout@v2
