@@ -11,9 +11,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
-    - name: Printq
-      run: dir "C:\Program Files (x86)\MSBuild\"
-    
     - name: Install Vulkan SDK
       uses: humbletim/setup-vulkan-sdk@v1.2.0
       with:
@@ -35,60 +32,14 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/g-truc/glm.git
     
-    - name: Install Visual Studio 2022 Community 
-      shell: cmd
-      run: |
-        powershell -c "Invoke-WebRequest -Uri 'https://download.visualstudio.microsoft.com/download/pr/7ac7457f-ba6e-4a12-ba2c-1adebad20070/956d3034e261ad0645371d0ffb21ab5bd3c85ed81feffd11171606fc2bc173ff/vs_Community.exe' -OutFile vs_Community.exe"
-        vs_Community.exe --installPath "C:\Program Files\Microsoft Visual Studio\2022\Community" --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait
-    
-    - name: Download Windows SDK
-      shell: powershell
-      run: |
-        Invoke-WebRequest -Uri "https://download.microsoft.com/download/7/9/6/7962e9ce-cd69-4574-978c-1202654bd729/windowssdk/winsdksetup.exe" -OutFile winsdksetup.exe
-        mkdir C:/Win10SDK
-    
-    - name: Install Windows SDK
-      shell: cmd
-      run: winsdksetup.exe /features + /quiet /norestart
-    
     - name: Download MESA
       run: git clone https://github.com/Mesa3D/mesa.git
     
-    - name: Set up PowerShell
-      uses: actions/setup-powershell@v1
-
-    - name: Download and Install Visual Studio Build Tools
-      run: |
-        # Define the URL to download the Visual Studio Build Tools installer
-        $installerUrl = "https://aka.ms/vs/17/release/vs_buildtools.exe"
-
-        # Define the path where the installer will be saved
-        $installerPath = "$env:USERPROFILE\Downloads\vs_buildtools.exe"
-
-        # Download the Visual Studio Build Tools installer
-        Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
-
-        # Define the installation options (feel free to modify based on your requirements)
-        $installOptions = "--add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait"
-
-        # Install Visual Studio Build Tools
-        Start-Process -FilePath $installerPath -ArgumentList $installOptions -Wait
-
-        # Remove the downloaded installer (optional)
-        Remove-Item $installerPath
-    
-    - name: Set up MSVC environment
-      env:
-        PATH: ${{ env.PATH }};C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VC\VCTargets
-      run: |
-        dir "C:\Program Files\Microsoft Visual Studio\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Community"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\BuildTools\Common7\IDE\VC\VCTargets"
+    - name: Install Visual Studio Build Tools
+      uses: microsoft/setup-msbuild@v1.0.0
+      with:
+          vs-version: '17' # Use the appropriate version
+          include-prerelease: true # Set to false if you don't want prerelease versions
     
     - name: Build
       shell: cmd
