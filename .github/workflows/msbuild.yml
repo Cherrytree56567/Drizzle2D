@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
     steps:    
     - name: Checkout code
       uses: actions/checkout@v2
@@ -18,21 +20,46 @@ jobs:
         vulkan-components: Vulkan-Headers, Vulkan-Loader
         vulkan-use-cache: true
     
+    # Cache GLFW installation
+    - name: Cache GLFW
+      id: cache-glfw
+      uses: actions/cache@v2
+      with:
+          path: 'C:/Program Files/GLFW'
+          key: ${{ runner.os }}-glfw-${{ hashFiles('glfw.zip') }}
+          restore-keys: ${{ runner.os }}-glfw-
+
     - name: Install GLFW
+      if: steps.cache-glfw.outputs.cache-hit != 'true'
       run: |
-        powershell -c "Invoke-WebRequest -Uri 'https://github.com/glfw/glfw/releases/download/3.3.8/glfw-3.3.8.bin.WIN64.zip' -OutFile glfw.zip"
-        powershell.exe -NoP -NonI -Command "Expand-Archive '.\glfw.zip' 'C:\Program Files\GLFW'"
-        dir "C:\Program Files\GLFW\glfw-3.3.8.bin.WIN64"
-    
+          powershell -c "Invoke-WebRequest -Uri 'https://github.com/glfw/glfw/releases/download/3.3.8/glfw-3.3.8.bin.WIN64.zip' -OutFile glfw.zip"
+          powershell.exe -NoP -NonI -Command "Expand-Archive '.\glfw.zip' 'C:\Program Files\GLFW'"
+          dir "C:\Program Files\GLFW\glfw-3.3.8.bin.WIN64"
+
+      # Cache STB, GLM, and MESA repositories
+    - name: Cache STB, GLM, MESA
+      id: cache-deps
+      uses: actions/cache@v2
+      with:
+          path: |
+            stb
+            glm
+            mesa
+          key: ${{ runner.os }}-deps-${{ hashFiles('**/dependencies-lock.json') }}
+          restore-keys: ${{ runner.os }}-deps-
+
     - name: Download STB
+      if: steps.cache-deps.outputs.cache-hit != 'true'
       run: |
-        git clone --depth=1 https://github.com/nothings/stb.git
-    
+          git clone --depth=1 https://github.com/nothings/stb.git
+
     - name: Download GLM
+      if: steps.cache-deps.outputs.cache-hit != 'true'
       run: |
-        git clone --depth=1 https://github.com/g-truc/glm.git
-    
+          git clone --depth=1 https://github.com/g-truc/glm.git
+
     - name: Download MESA
+      if: steps.cache-deps.outputs.cache-hit != 'true'
       run: git clone https://github.com/Mesa3D/mesa.git
     
     - name: Install Visual Studio Build Tools
