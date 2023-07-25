@@ -25,22 +25,9 @@ jobs:
         vulkan-query-version: 1.3.204.0
         vulkan-components: Vulkan-Headers, Vulkan-Loader
         vulkan-use-cache: true
-    
-    # Cache GLFW installation
-    - name: Cache GLFW
-      id: cache-glfw
-      uses: actions/cache@v2
-      with:
-          path: ${{ github.workspace }}
-          key: ${{ runner.os }}-glfw-${{ hashFiles('glfw.zip') }}
-          restore-keys: ${{ runner.os }}-glfw-
 
     - name: Install GLFW
-      if: steps.cache-glfw.outputs.cache-hit != 'true'
-      run: |
-          powershell -c "Invoke-WebRequest -Uri 'https://github.com/glfw/glfw/releases/download/3.3.8/glfw-3.3.8.bin.WIN64.zip' -OutFile glfw.zip"
-          powershell.exe -NoP -NonI -Command "Expand-Archive '.\glfw.zip' ${{ github.workspace }}"
-          dir ${{ github.workspace }}
+      run: git clone --depth=1 https://github.com/glfw/glfw.git
 
       # Cache STB, GLM, and MESA repositories
     - name: Cache STB, GLM, MESA
@@ -71,4 +58,4 @@ jobs:
     - name: Build
       shell: cmd
       run: |
-        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\msbuild.exe" Drizzle2DVulkan.vcxproj /p:Configuration=Release
+        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\msbuild.exe" Drizzle2DVulkan.vcxproj /p:Configuration=Release /p:AdditionalIncludeDirectories="glfw\include"
