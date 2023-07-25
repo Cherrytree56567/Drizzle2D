@@ -54,6 +54,29 @@ jobs:
     - name: Download MESA
       run: git clone https://github.com/Mesa3D/mesa.git
     
+    - name: Set up PowerShell
+      uses: actions/setup-powershell@v1
+
+    - name: Download and Install Visual Studio Build Tools
+      run: |
+        # Define the URL to download the Visual Studio Build Tools installer
+        $installerUrl = "https://aka.ms/vs/17/release/vs_buildtools.exe"
+
+        # Define the path where the installer will be saved
+        $installerPath = "$env:USERPROFILE\Downloads\vs_buildtools.exe"
+
+        # Download the Visual Studio Build Tools installer
+        Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
+
+        # Define the installation options (feel free to modify based on your requirements)
+        $installOptions = "--add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended --quiet --wait"
+
+        # Install Visual Studio Build Tools
+        Start-Process -FilePath $installerPath -ArgumentList $installOptions -Wait
+
+        # Remove the downloaded installer (optional)
+        Remove-Item $installerPath
+    
     - name: Set up MSVC environment
       env:
         PATH: ${{ env.PATH }};C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VC\VCTargets
@@ -63,10 +86,9 @@ jobs:
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\VC" /s
         dir "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VC" /s
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Community\BuildTools\Common7\IDE\VC\VCTargets"
     
     - name: Build
       shell: cmd
