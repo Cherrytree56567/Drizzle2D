@@ -70,16 +70,11 @@ jobs:
       if: steps.cache-deps.outputs.cache-hit != 'true'
       run: git clone https://github.com/Mesa3D/mesa.git
     
-    - name: Install Visual Studio Build Tools
-      uses: microsoft/setup-msbuild@v1.0.0
-      with:
-          vs-version: '17' # Use the appropriate version
-          include-prerelease: true # Set to false if you don't want prerelease versions
-    
-    - name: Add VS Build Tools to Environment Variables
+    - name: Add Custom Path
       run: |
-        dir "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\VC\VCTargets"
-        echo "##[set-env name=PATH]C:\Program Files\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\VC\VCTargets;${{ env.PATH }}"
+          echo "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170;${{ env.PATH }}" >> $GITHUB_ENV
+      env:
+          PATH: ${{ env.PATH }};C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170
     
     - name: Build
       shell: cmd
