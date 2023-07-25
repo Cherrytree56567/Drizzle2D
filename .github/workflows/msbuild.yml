@@ -59,7 +59,7 @@ jobs:
         PATH: ${{ env.PATH }};C:\Program Files\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\VC\VCTargets
       run: |
         dir "C:\Program Files\Microsoft Visual Studio\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\
+        dir "C:\Program Files\Microsoft Visual Studio\2022\"
     
     - name: Build
       shell: cmd
