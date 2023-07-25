@@ -17,6 +17,7 @@ jobs:
     runs-on: windows-latest
     env:
       ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      VCTargetsPath: "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\"
     steps:    
     - name: Checkout code
       uses: actions/checkout@v2
@@ -70,14 +71,7 @@ jobs:
       if: steps.cache-deps.outputs.cache-hit != 'true'
       run: git clone https://github.com/Mesa3D/mesa.git
     
-    - name: Add MSBuild to Path
-      run: |
-          dir "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170"
-          echo "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170;${{ env.PATH }}" >> $GITHUB_ENV
-      env:
-          PATH: ${{ env.PATH }};C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170
-    
     - name: Build
       shell: cmd
       run: |
-        dotnet build Drizzle2DVulkan.vcxproj --configuration Release
+        "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\msbuild.exe" Drizzle2DVulkan.vcxproj /p:Configuration=Release
