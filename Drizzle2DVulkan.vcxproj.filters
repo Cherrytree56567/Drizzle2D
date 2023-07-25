@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Window">
+      <UniqueIdentifier>{ed4447fe-bcbf-400d-a3c5-0202b0b2c18e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{9eedb6e5-8b92-480f-a186-485eb6ae4f90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Shaders">
+      <UniqueIdentifier>{3bacd93e-d056-43fc-8e42-f291c6a738c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Devices">
+      <UniqueIdentifier>{7eadc302-0872-4257-b423-4e94635ec66e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Swapchain">
+      <UniqueIdentifier>{896d0aa2-dc4c-4ed4-a19e-420af13dfaad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Surface">
+      <UniqueIdentifier>{b9d9a0f1-019f-472f-be5e-87484974f2be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Image Views">
+      <UniqueIdentifier>{2ef06e66-c006-44a2-bd33-5c0c5d44c9d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\GraphicsPipeline">
+      <UniqueIdentifier>{40238d59-3e0f-4d89-b193-0d2bf390d875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Debug">
+      <UniqueIdentifier>{bca4271d-1b6e-4b77-914b-a5a8574d0c58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Framebuffer">
+      <UniqueIdentifier>{3f0ce8d3-74bb-4536-abb0-89b1994e3f13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\CommandBuffer">
+      <UniqueIdentifier>{c831683d-f085-4f24-aa20-4e59a7889f7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Frames">
+      <UniqueIdentifier>{eb43762c-8d9c-4809-b742-f292e9562aba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\UniformBuffer">
+      <UniqueIdentifier>{fcd5fa1e-455a-42c0-9a09-ef69779253c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer\Textures">
+      <UniqueIdentifier>{2bde7f4f-a805-4fc3-b0d2-624c11354f14}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Swapchain.cpp">
+      <Filter>Source Files\Renderer\Swapchain</Filter>
+    </ClCompile>
+    <ClCompile Include="Physical Device.cpp">
+      <Filter>Source Files\Renderer\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="Logical Device.cpp">
+      <Filter>Source Files\Renderer\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="Device.cpp">
+      <Filter>Source Files\Renderer\Devices</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Source Files\Renderer\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Surface.cpp">
+      <Filter>Source Files\Renderer\Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="Image Views.cpp">
+      <Filter>Source Files\Renderer\Image Views</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsPipeline.cpp">
+      <Filter>Source Files\Renderer\GraphicsPipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="framebuffer.cpp">
+      <Filter>Source Files\Renderer\Framebuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files\Renderer\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandBuffer.cpp">
+      <Filter>Source Files\Renderer\CommandBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Frames.cpp">
+      <Filter>Source Files\Renderer\Frames</Filter>
+    </ClCompile>
+    <ClCompile Include="UniformBuffer.cpp">
+      <Filter>Source Files\Renderer\UniformBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures.cpp">
+      <Filter>Source Files\Renderer\Textures</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Window.h">
+      <Filter>Source Files\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Source Files\Renderer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader.vert">
+      <Filter>Source Files\Renderer\Shaders</Filter>
+    </None>
+    <None Include="shader.frag">
+      <Filter>Source Files\Renderer\Shaders</Filter>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
