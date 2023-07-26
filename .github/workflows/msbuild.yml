@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ main ]
 jobs:  
-  build_WINDOWS:
+  build:
     runs-on: windows-latest
     steps:    
     - name: Checkout code
