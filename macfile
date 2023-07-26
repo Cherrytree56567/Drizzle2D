@@ -7,7 +7,7 @@ SRCWINDOW = Window.cpp Window.h
 SRC = main.cpp
 
 Drizzle2D: 
-	brew install glfw3 vulkan-sdk glm spirv-tools
+	brew install glfw3 glm spirv-tools
 	git clone https://github.com/nothings/stb.git
 	$(CPPC) -c $(CFLAGS) CommandBuffer.cpp -o x64/Release/CommandBuffer.obj
 	$(CPPC) -c $(CFLAGS) Debug.cpp -o x64/Release/Debug.obj
