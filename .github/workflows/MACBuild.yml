@@ -1,0 +1,55 @@
+name: MACBuild
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  
+jobs:  
+  build:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Vulkan SDK
+      run: |
+        brew update
+        brew install vulkan
+
+    - name: Cache STB, GLM, MESA, GLFW
+      id: cache-deps
+      uses: actions/cache@v2
+      with:
+        path: |
+          stb
+          glm
+          mesa
+          GLFW
+        key: ${{ runner.os }}-deps-${{ hashFiles('**/dependencies-lock.json') }}
+        restore-keys: ${{ runner.os }}-deps-
+
+    - name: Install GLFW
+      if: steps.cache-deps.outputs.cache-hit != 'true'
+      run: |
+        curl -LO https://github.com/Cherrytree56567/Drizzle2D/raw/main/GLFW.zip
+        unzip GLFW.zip -d ${{ github.workspace }}
+        ls ${{ github.workspace }}/GLFW
+
+    - name: Download STB
+      if: steps.cache-deps.outputs.cache-hit != 'true'
+      run: |
+        git clone --depth=1 https://github.com/nothings/stb.git
+
+    - name: Download GLM
+      if: steps.cache-deps.outputs.cache-hit != 'true'
+      run: |
+        git clone --depth=1 https://github.com/g-truc/glm.git
+
+    - name: Download MESA
+      if: steps.cache-deps.outputs.cache-hit != 'true'
+      run: git clone https://github.com/Mesa3D/mesa.git
+
+    - name: Build
+      run: |
+        msbuild Drizzle2DVulkan.vcxproj /p:Configuration=Release -t:restore -p:RestorePackagesConfig=true
