@@ -1,6 +1,6 @@
 CPPC=g++
 OBJ = main.obj
-CFLAGS = -std=c++17 -O2 -Istb -I. -D__APPLE__ -I$(VULKAN_SDK)/macOS/include
+CFLAGS = -std=c++17 -O2 -Istb -I. -D__APPLE__ -I/usr/local/include
 LDFLAGS = -lglfw -lvulkan
 SRCRENDERER = CommandBuffer.cpp Debug.cpp Device.cpp framebuffer.cpp Frames.cpp GraphicsPipeline.cpp ImageViews.cpp LogicalDevice.cpp PhysicalDevice.cpp Renderer.cpp Renderer.h Shader.cpp Surface.cpp Swapchain.cpp Textures.cpp UniformBuffer.cpp
 SRCWINDOW = Window.cpp Window.h
