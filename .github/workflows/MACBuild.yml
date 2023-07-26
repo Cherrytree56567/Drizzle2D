@@ -55,3 +55,4 @@ jobs:
     - name: Build
       run: |
         msbuild Drizzle2DVulkan.vcxproj /p:Configuration=Release -t:restore -p:RestorePackagesConfig=true
+        dir -s
