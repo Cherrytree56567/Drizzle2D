@@ -8,6 +8,7 @@ SRC = main.cpp
 
 Drizzle2D: 
 	brew install glfw3 glm spirv-tools
+	brew cask install apenngrace/vulkan/vulkan-sdk
 	$(CPPC) -c $(CFLAGS) CommandBuffer.cpp -o x64/Release/CommandBuffer.obj
 	$(CPPC) -c $(CFLAGS) Debug.cpp -o x64/Release/Debug.obj
 	$(CPPC) -c $(CFLAGS) Device.cpp -o x64/Release/Device.obj
