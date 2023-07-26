@@ -15,6 +15,7 @@ jobs:
     - name: Install Vulkan SDK
       run: |
         brew update
+        brew install vulkan-extensionlayer
         brew install vulkan
 
     - name: Cache STB, GLM, MESA, GLFW
