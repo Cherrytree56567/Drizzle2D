@@ -54,6 +54,5 @@ jobs:
 
     - name: Build
       run: |
-        ls -R "'$VULKAN_SDK'"
         make -f macfile
         ls -R
