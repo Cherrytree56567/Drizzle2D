@@ -54,5 +54,6 @@ jobs:
 
     - name: Build
       run: |
+        ls -R
         make -f macfile
         ls -R
