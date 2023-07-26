@@ -1,7 +1,7 @@
 CPPC=g++
 OBJ = main.obj
 CFLAGS = -std=c++17 -O2 -Istb -I. -DLinux -I/usr/local/include -IVULKAN_SDK/include
-LDFLAGS = -lglfw -lvulkan
+LDFLAGS = -lglfw -lvulkan -LVULKAN_SDK/lib
 SRCRENDERER = CommandBuffer.cpp Debug.cpp Device.cpp framebuffer.cpp Frames.cpp GraphicsPipeline.cpp ImageViews.cpp LogicalDevice.cpp PhysicalDevice.cpp Renderer.cpp Renderer.h Shader.cpp Surface.cpp Swapchain.cpp Textures.cpp UniformBuffer.cpp
 SRCWINDOW = Window.cpp Window.h
 SRC = main.cpp
