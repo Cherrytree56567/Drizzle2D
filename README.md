@@ -8,6 +8,8 @@
 
 [![LinuxBuild](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/linux.yml/badge.svg)](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/linux.yml)
 
+[![CodeQL](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/codeql.yml/badge.svg)](https://github.com/Cherrytree56567/Drizzle2D/actions/workflows/codeql.yml)
+
 [Key Features](#Key-Features) | [Downloading](#Downloading) | [Future Support](#Future-Support)
 
 # Notes
