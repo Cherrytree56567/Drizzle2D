@@ -31,7 +31,6 @@ Drizzle2D:
 	$(CPPC) -c $(CFLAGS) Window.cpp -o x64/Release/Window.obj
 	$(CPPC) -c $(CFLAGS) main.cpp -o x64/Release/main.obj
 	$(CPPC) $(CFLAGS) -o Drizzle2D.elf x64/Release/*.obj $(LDFLAGS)
-	./Drizzle2D.elf
 
 .PHONY: test clean
 
