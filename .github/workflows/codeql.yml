@@ -128,9 +128,6 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-
-    - name: Checkout code
-      uses: actions/checkout@v2
     
     - name: Install Vulkan SDK
       uses: humbletim/setup-vulkan-sdk@v1.2.0
@@ -176,10 +173,9 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
     
-    - name: Add GLFW
+    - name: Remove Packages.Config
       run: |
         rm packages.config
-        dotnet add package glfw --version 3.3.8
     
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
