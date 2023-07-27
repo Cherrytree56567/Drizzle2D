@@ -176,7 +176,11 @@ jobs:
     - name: Remove Packages.Config
       run: |
         rm packages.config
-    
+
+    - name: Restoring Nuget Packages
+      run:		|
+        msbuild -t:restore
+
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
 
