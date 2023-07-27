@@ -61,6 +61,43 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
+    
+    - name: Install Vulkan SDK
+      uses: humbletim/setup-vulkan-sdk@v1.2.0
+      with:
+        vulkan-query-version: 1.3.204.0
+        vulkan-components: Vulkan-Headers, Vulkan-Loader
+        vulkan-use-cache: true
+
+    - name: Cache STB, GLM, MESA, GLFW
+      id: cache-deps
+      uses: actions/cache@v2
+      with:
+        path: |
+          stb
+          glm
+          mesa
+          GLFW
+        key: ${{ runner.os }}-deps-${{ hashFiles('**/dependencies-lock.json') }}
+        restore-keys: ${{ runner.os }}-deps-
+
+    - name: Install GLFW
+      if: steps.cache-deps.outputs.cache-hit != 'true'
+      run: |
+        curl -LO https://github.com/Cherrytree56567/Drizzle2D/raw/main/GLFW.zip
+        unzip GLFW.zip -d ${{ github.workspace }}
+        ls ${{ github.workspace }}/GLFW
+    - name: Download STB
+      if: steps.cache-deps.outputs.cache-hit != 'true'
+      run: |
+        git clone --depth=1 https://github.com/nothings/stb.git
+    - name: Download GLM
+      if: steps.cache-deps.outputs.cache-hit != 'true'
+      run: |
+        git clone --depth=1 https://github.com/g-truc/glm.git
+    - name: Download MESA
+      if: steps.cache-deps.outputs.cache-hit != 'true'
+      run: git clone https://github.com/Mesa3D/mesa.git
 
     - name: Compile Drizzle2D
       run: make -f macfile
