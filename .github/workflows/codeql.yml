@@ -176,10 +176,13 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
     
-    - name: Build
-      working-directory: ${{env.GITHUB_WORKSPACE}}
+    - name: Add GLFW
       run: |
-        msbuild.exe /m Drizzle2DVulkan.vcxproj /p:Configuration=Release -t:restore -p:RestorePackagesConfig=true
+        rm packages.config
+        dotnet add package glfw --version 3.3.8
+    
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
