@@ -8,10 +8,6 @@ SRCWINDOW = Window.cpp Window.h
 SRC = main.cpp
 
 Drizzle2D: 
-	sudo apt update -y
-	sudo apt install libjsoncpp-dev qtbase5-dev
-	sudo apt install vulkan-profiles
-	sudo apt install vulkancapsviewer
 	wget -qO - http://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo apt-key add - 
 	sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-focal.list http://packages.lunarg.com/vulkan/lunarg-vulkan-focal.list
 	sudo apt update -y
