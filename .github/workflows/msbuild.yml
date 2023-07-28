@@ -56,6 +56,12 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
     
     - name: Build
-      working-directory: ${{env.GITHUB_WORKSPACE}}
+      working-directory: ${{ github.workspace }}
       run: |
         msbuild.exe /m Drizzle2DVulkan.vcxproj /p:Configuration=Release -t:restore -p:RestorePackagesConfig=true
+    
+    - name: Create artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-runner-windows  # Name of the artifact
+        path: ${{ github.workspace }}
