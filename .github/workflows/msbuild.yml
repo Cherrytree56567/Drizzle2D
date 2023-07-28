@@ -58,7 +58,7 @@ jobs:
     - name: Build
       working-directory: ${{ github.workspace }}
       run: |
-        msbuild.exe /m Drizzle2DVulkan.vcxproj /p:Configuration=Release -t:restore -p:RestorePackagesConfig=true /p:OutputPath='${{ github.workspace }}'
+        msbuild.exe Drizzle2DVulkan.vcxproj /p:Configuration=Release -t:restore -p:RestorePackagesConfig=true /p:OutputPath='${{ github.workspace }}'
     
     - name: Create artifact
       uses: actions/upload-artifact@v2
