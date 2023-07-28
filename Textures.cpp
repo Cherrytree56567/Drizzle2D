@@ -77,7 +77,7 @@ void Renderer::transitionImageLayout(VkImage image, VkFormat format, VkImageLayo
 void Renderer::createTextureImage() {
     int texWidth, texHeight, texChannels;
     stbi_uc* pixels = stbi_load("textures/texture.jpg", &texWidth, &texHeight, &texChannels, STBI_rgb_alpha);
-    VkDeviceSize imageSize = texWidth * texHeight * 4;
+    VkDeviceSize imageSize = (VkDeviceSize)texWidth * texHeight * 4;
 
     if (!pixels) {
         throw std::runtime_error("failed to load texture image!");
