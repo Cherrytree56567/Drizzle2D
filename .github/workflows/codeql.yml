@@ -175,7 +175,7 @@ jobs:
     
     - name: Restoring Nuget Packages
       run:		|
-        msbuild -t:restore
+        msbuild Drizzle2DVulkan.vcxproj -t:restore
 
     - name: Remove Packages.Config
       run: |
