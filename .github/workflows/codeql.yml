@@ -172,14 +172,6 @@ jobs:
     
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
-    
-    - name: Restoring Nuget Packages
-      run:		|
-        msbuild Drizzle2DVulkan.vcxproj -t:restore
-
-    - name: Remove Packages.Config
-      run: |
-        rm packages.config
 
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
