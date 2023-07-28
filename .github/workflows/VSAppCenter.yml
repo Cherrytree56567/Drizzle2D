@@ -56,13 +56,13 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
     
     - name: Build
-      working-directory: ${{env.GITHUB_WORKSPACE}}
+      working-directory: ${{ github.workspace }}
       run: |
         msbuild.exe /m Drizzle2DVulkan.vcxproj /p:Configuration=Release -t:restore -p:RestorePackagesConfig=true /p:OutputPath=${{env.GITHUB_WORKSPACE}}
     
     - name: Create Zip Archive using 7-Zip
       run: |
-        "C:\Program Files\7-Zip\7z.exe" '${{env.GITHUB_WORKSPACE}}' output.zip 
+        "C:\Program Files\7-Zip\7z.exe" '${{ github.workspace }}' output.zip 
     
     - name: upload artefact to App Center
       uses: wzieba/AppCenter-Github-Action@v1
