@@ -62,7 +62,7 @@ jobs:
     
     - name: Create Zip Archive using 7-Zip
       run: |
-        "C:\Program Files\7-Zip\7z.exe" output.zip ${{env.GITHUB_WORKSPACE}}
+        "C:\Program Files\7-Zip\7z.exe" '${{env.GITHUB_WORKSPACE}}' output.zip 
     
     - name: upload artefact to App Center
       uses: wzieba/AppCenter-Github-Action@v1
