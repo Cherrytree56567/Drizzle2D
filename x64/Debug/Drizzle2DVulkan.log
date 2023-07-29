@@ -1,2 +1,19 @@
-﻿  Textures.cpp
-  Drizzle2DVulkan.vcxproj -> C:\rd2\Drizzle\x64\Debug\Drizzle2DVulkan.exe
+﻿  CommandBuffer.cpp
+  Debug.cpp
+  Device.cpp
+  framebuffer.cpp
+  Frames.cpp
+  GraphicsPipeline.cpp
+  Image Views.cpp
+  Logical Device.cpp
+  main.cpp
+  Physical Device.cpp
+  Renderer.cpp
+  Shader.cpp
+  Surface.cpp
+  Swapchain.cpp
+  Textures.cpp
+  UniformBuffer.cpp
+  Window.cpp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Drizzle2DVulkan.vcxproj -> C:\Users\ronit_hsa\Documents\GitHub\Drizzle2D\x64\Debug\Drizzle2DVulkan.exe
